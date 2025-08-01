@@ -44,7 +44,7 @@ const Section: React.FC<{ id: string; children: React.ReactNode; className?: str
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
-      className={`py-16 px-4 md:px-8 lg:px-16 min-h-screen flex items-center justify-center ${className || ''}`}
+      className={`${className || ''}`} /* Removed inline padding, now handled by global section style */
       style={style}
     >
       {children}
@@ -241,14 +241,14 @@ const App: React.FC = () => {
                 <p className="text-xl mb-4">23 January 2026</p>
                 <button
                   onClick={() => window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=Himanshu+%26+Ishika%27s+Wedding&dates=20260123T000000Z/20260123T000000Z&details=Join+us+to+celebrate+the+wedding+of+Himanshu+and+Ishika!&location=Your+Wedding+Venue', '_blank')}
-                  className="bg-gold-500 text-maroon-900 px-6 py-3 rounded-full text-lg font-semibold hover:bg-gold-600 transition-colors duration-300 flex items-center"
+                  className="btn-secondary flex items-center"
                 >
                   <FaCalendarAlt className="mr-2" /> Add to Calendar
                 </button>
               </div>
             </motion.div>
           </div>
-          <button className="mt-8 bg-maroon-800 text-cream-100 px-8 py-4 rounded-full text-xl font-semibold hover:bg-maroon-700 transition-colors duration-300 flex items-center mx-auto">
+          <button className="btn-primary flex items-center mx-auto">
             <IoMdDownload className="mr-2" /> Download Postcard
           </button>
         </div>
@@ -269,7 +269,7 @@ const App: React.FC = () => {
                 <li className="flex items-center"><span className="text-gold-600 mr-3">✔</span> Take 100+ selfies (and tag us!)</li>
                 <li className="flex items-center"><span className="text-gold-600 mr-3">✔</span> Bless the couple with all your heart</li>
               </ul>
-              <button className="mt-8 bg-maroon-800 text-cream-100 px-8 py-4 rounded-full text-xl font-semibold hover:bg-maroon-700 transition-colors duration-300 flex items-center mx-auto">
+              <button className="btn-primary flex items-center mx-auto">
                 <IoMdDownload className="mr-2" /> Download Magnet
               </button>
             </div>
@@ -302,7 +302,7 @@ const App: React.FC = () => {
               <label htmlFor="photoUpload" className="block text-maroon-800 text-xl font-bold mb-2">Upload a Selfie or Memory Photo (Optional)</label>
               <input type="file" id="photoUpload" name="photoUpload" accept="image/*" className="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gold-500 file:text-maroon-900 hover:file:bg-gold-600" />
             </div>
-            <button type="submit" className="bg-maroon-800 text-cream-100 px-8 py-4 rounded-full text-xl font-semibold hover:bg-maroon-700 transition-colors duration-300">
+            <button type="submit" className="btn-primary">
               Send RSVP!
             </button>
           </form>
@@ -326,7 +326,7 @@ const App: React.FC = () => {
               <label htmlFor="advice" className="block text-maroon-800 text-xl font-bold mb-2">One Piece of Marriage Advice</label>
               <textarea id="advice" name="advice" rows={5} className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Share your wisdom for a happy married life!"></textarea>
             </div>
-            <button type="submit" className="bg-maroon-800 text-cream-100 px-8 py-4 rounded-full text-xl font-semibold hover:bg-maroon-700 transition-colors duration-300">
+            <button type="submit" className="btn-primary">
               Submit Advice
             </button>
           </form>
@@ -367,7 +367,7 @@ const App: React.FC = () => {
           <h2 className="text-5xl font-bold mb-12 text-gold-400">Scan Our Wedding Website!</h2>
           <img src="https://via.placeholder.com/300x300/FFFFFF/000000?text=QR+Code+Placeholder" alt="QR Code" className="mx-auto mb-6 rounded-lg shadow-lg" />
           <p className="text-2xl mb-6">Scan this on your wedding card for all the details!</p>
-          <button className="bg-gold-500 text-maroon-900 px-8 py-4 rounded-full text-xl font-semibold hover:bg-gold-600 transition-colors duration-300 flex items-center mx-auto">
+          <button className="btn-secondary flex items-center mx-auto">
             <IoMdDownload className="mr-2" /> Download QR Code
           </button>
         </div>
