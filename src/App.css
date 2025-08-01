@@ -1,0 +1,21 @@
+/* You can add any custom CSS here if Tailwind CSS isn't sufficient for specific styles. */
+/* For example, if you need very specific animations or complex layouts not easily achievable with Tailwind. */
+
+/* Example: Custom scrollbar (optional) */
+/*
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+*/
