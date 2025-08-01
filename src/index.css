@@ -33,13 +33,13 @@ html {
 
 /* Color Palette Variables */
 :root {
-  --color-blush-pink: #f8c8dc; /* Soft blush pink */
-  --color-dusty-blue: #b0c4de; /* Dusty blue */
+  --color-blush-pink: #f5d0e0; /* Softer blush pink */
+  --color-dusty-blue: #a7c4e0; /* Muted dusty blue */
   --color-mint-green: #c8e6c9; /* Soft mint green */
-  --color-cream: #fdf5e6; /* Cream */
-  --color-light-grey: #f0f2f5; /* Light grey */
-  --color-dark-grey: #4a5568; /* Dark grey for text */
-  --color-rose-gold: #b76e79; /* Rose gold accent */
+  --color-cream: #fcf8f3; /* Slightly warmer cream */
+  --color-light-grey: #eef2f7; /* Slightly lighter grey */
+  --color-dark-grey: #3a4750; /* Darker, more sophisticated grey for text */
+  --color-rose-gold: #b07c85; /* Slightly deeper rose gold */
   --color-white: #ffffff; /* Pure white */
   --color-black: #000000; /* Pure black */
 
@@ -78,6 +78,9 @@ body {
   font-family: 'Open Sans', sans-serif; /* Clean sans-serif for body */
   color: var(--color-text-dark); /* Dark grey for text */
   background-color: var(--color-background-light); /* Cream background */
+  background-image: url('https://via.placeholder.com/1920x1080/F5F5DC/FFFFFF?text=Subtle+Texture'); /* Subtle texture background */
+  background-size: cover;
+  background-attachment: fixed; /* Keeps background fixed during scroll */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6; /* Improved readability */
@@ -139,7 +142,7 @@ p {
 .bg-gold-400 { background-color: var(--color-accent); } /* Re-mapping gold to blush pink */
 .bg-gold-500 { background-color: var(--color-accent); } /* Re-mapping gold to blush pink */
 .bg-gold-600:hover { background-color: var(--color-blush-pink); } /* Darker blush pink on hover */
-.text-red-500 { color: #FF6B6B; } /* Softer red for heart icon */
+.text-red-500 { color: #e07a8a; } /* Even softer red for heart icon */
 .text-blue-600 { color: var(--color-secondary); }
 .hover\:text-blue-700:hover { color: var(--color-primary); }
 .text-green-500 { color: #7bc07b; } /* Softer green */
@@ -367,7 +370,7 @@ p {
 
 /* Navigation Bar */
 nav {
-  background-color: rgba(176, 196, 222, 0.9); /* Semi-transparent dusty blue */
+  background-color: rgba(167, 196, 224, 0.95); /* Slightly more opaque muted dusty blue */
   color: var(--color-text-light); /* White text */
   padding: 1rem 0;
   position: fixed;
@@ -464,22 +467,11 @@ section {
 
 /* Home Section */
 #home {
-  background-image: url('https://via.placeholder.com/1920x1080/DDA0DD/FFFFFF?text=Romantic+Wedding+Background'); /* Soft purple/pink placeholder */
+  background-color: var(--color-mint-green);
   background-size: cover;
   background-position: center;
-  color: var(--color-text-light); /* White text */
+  color: var(--color-text-dark); /* White text */
   position: relative;
-}
-
-#home::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3); /* Lighter overlay */
-  z-index: 1;
 }
 
 #home > * {
@@ -491,15 +483,13 @@ section {
   font-size: 5.5rem; /* Even larger for hero section */
   font-weight: normal; /* Great Vibes is normal weight */
   margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   font-family: 'Great Vibes', cursive; /* Ensure script font for names */
 }
 
 #home p {
   font-size: 2.2rem; /* Larger for hero section */
   margin-bottom: 2.5rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-  font-family: 'Open Sans', sans-serif; /* Ensure sans-serif for tagline */
+  font-family: 'Great Vibes', cursive; /* Ensure script font for names */
 }
 
 #home .countdown span {
@@ -608,8 +598,8 @@ section {
 
 /* Event Schedule Section */
 #events {
-  background-color: var(--color-background-dark); /* Dusty blue */
-  color: var(--color-text-light); /* White */
+  background-color: var(--color-mint-green); /* Mint Green */
+  color: var(--color-text-dark); /* Dark Grey */
 }
 
 #events h2 {
@@ -753,8 +743,8 @@ section {
 
 /* Shaadi Checklist Magnet Section */
 #checklist {
-  background-color: var(--color-background-dark);
-  color: var(--color-text-light);
+  background-color: var(--color-blush-pink);
+  color: var(--color-text-dark);
 }
 
 #checklist h2 {
@@ -887,8 +877,8 @@ section {
 
 /* Guestbook Section */
 #guestbook {
-  background-color: var(--color-background-dark);
-  color: var(--color-text-light);
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
 }
 
 #guestbook h2 {
@@ -1000,8 +990,8 @@ section {
 
 /* QR Code Section */
 #qr-code {
-  background-color: var(--color-background-dark);
-  color: var(--color-text-light);
+  background-color: var(--color-blush-pink);
+  color: var(--color-text-dark);
 }
 
 #qr-code h2 {
@@ -1046,9 +1036,9 @@ section {
   transform: translateY(-5px);
 }
 
-.social-icons .fa-whatsapp:hover { color: #7bc07b; } /* Softer green */
-.social-icons .fa-instagram:hover { color: #e68a9e; } /* Softer pink */
-.social-icons .fa-youtube:hover { color: #FF6B6B; } /* Softer red */
+.social-icons .fa-whatsapp:hover { color: #98d898; } /* Even softer green */
+.social-icons .fa-instagram:hover { color: #f0a8b8; } /* Even softer pink */
+.social-icons .fa-youtube:hover { color: #f59898; } /* Even softer red */
 .social-icons .fa-envelope:hover { color: var(--color-secondary); }
 
 #contact p {
@@ -1068,7 +1058,7 @@ section {
 
 /* Footer */
 footer {
-  background-color: var(--color-background-dark);
+  background-color: var(--color-dark-grey);
   color: var(--color-text-light);
   padding: 2rem 1rem;
   text-align: center;
