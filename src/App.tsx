@@ -183,11 +183,11 @@ const App: React.FC = () => {
       <Section id="qr-code" className="bg-background-dark text-text-light py-16"> {/* Increased padding */}
         <div className="container mx-auto text-center">
           <h2 className="text-5xl font-script font-normal mb-12 text-rose-gold">Scan Our Wedding Website!</h2>
-          <img src="https://via.placeholder.com/300x300/FFFFFF/000000?text=QR+Code+Placeholder" alt="QR Code" className="mx-auto mb-6 rounded-lg shadow-lg" />
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://himanshudwivedi1224.github.io/WeddingPortal/&size=300x300" alt="QR Code" className="mx-auto mb-6 rounded-lg shadow-lg" />
           <p className="text-2xl mb-6 font-sans">Scan this on your wedding card for all the details!</p>
-          <button className="btn-secondary flex items-center mx-auto mt-8"> {/* Increased margin-top */}
+          <a href="https://api.qrserver.com/v1/create-qr-code/?data=https://himanshudwivedi1224.github.io/WeddingPortal/&size=300x300" download="WeddingPortalQRCode.png" className="btn-secondary flex items-center mx-auto mt-8">
             <IoMdDownload className="mr-2" /> Download QR Code
-          </button>
+          </a>
         </div>
       </Section>
 
