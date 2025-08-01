@@ -77,11 +77,11 @@ const App: React.FC = () => {
       return null;
     }
     return (
-      <div key={interval} className="flex flex-col items-center mx-2">
-        <span className="text-5xl md:text-7xl font-bold text-rose-gold font-sans">
+      <div key={interval} className="countdown-item flex flex-col items-center mx-2">
+        <span className="countdown-value text-5xl md:text-7xl font-bold text-rose-gold font-sans">
           {value}
         </span>
-        <span className="text-lg md:text-xl font-sans capitalize text-text-light">
+        <span className="countdown-label text-lg md:text-xl font-sans capitalize text-text-light">
           {interval}
         </span>
       </div>
@@ -126,7 +126,7 @@ const App: React.FC = () => {
         >
           Are Getting Married!
         </motion.p>
-        <div className="z-10 countdown flex justify-center items-center"> {/* Added flex classes for countdown layout */}
+        <div className="z-10 flex justify-center items-center">
           {countdownComponents.length ? countdownComponents : <span className="text-4xl md:text-6xl font-bold text-rose-gold font-sans">The Big Day is Here!</span>}
         </div>
       </Section>
@@ -135,10 +135,10 @@ const App: React.FC = () => {
       <Section id="our-story" className="bg-background-light text-text-dark py-16"> {/* Increased padding */}
         <div className="container mx-auto text-center">
           <h2 className="text-5xl font-script font-normal mb-12 text-primary">Our Journey Together</h2>
-          <div className="relative wrap overflow-hidden p-10 h-full">
+          <div className="relative overflow-hidden p-10 h-full">
             <div className="border-2-2 absolute border-opacity-20 border-secondary h-full border" style={{ left: '50%' }}></div>
             {/* Timeline Item 1 */}
-            <div className="mb-12 flex justify-between items-center w-full right-timeline"> {/* Increased margin-bottom */}
+            <div className="mb-12 flex justify-between items-center w-full"> {/* Increased margin-bottom */}
               <div className="order-1 w-5/12"></div>
               <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-8 h-8 rounded-full">
                 <h1 className="mx-auto font-semibold text-lg text-white">1</h1>
@@ -152,7 +152,7 @@ const App: React.FC = () => {
               </div>
             </div>
             {/* Timeline Item 2 */}
-            <div className="mb-12 flex justify-between flex-row-reverse items-center w-full left-timeline"> {/* Increased margin-bottom */}
+            <div className="mb-12 flex justify-between flex-row-reverse items-center w-full"> {/* Increased margin-bottom */}
               <div className="order-1 w-5/12"></div>
               <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-8 h-8 rounded-full">
                 <h1 className="mx-auto font-semibold text-lg text-white">2</h1>
@@ -166,7 +166,7 @@ const App: React.FC = () => {
               </div>
             </div>
             {/* Timeline Item 3 */}
-            <div className="mb-12 flex justify-between items-center w-full right-timeline"> {/* Increased margin-bottom */}
+            <div className="mb-12 flex justify-between items-center w-full"> {/* Increased margin-bottom */}
               <div className="order-1 w-5/12"></div>
               <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-8 h-8 rounded-full">
                 <h1 className="mx-auto font-semibold text-lg text-white">3</h1>
