@@ -44,7 +44,7 @@ const Section: React.FC<{ id: string; children: React.ReactNode; className?: str
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
-      className={`${className || ''}`} /* Removed inline padding, now handled by global section style */
+      className={`${className || ''} leading-relaxed`} /* Removed inline padding, now handled by global section style */
       style={style}
     >
       {children}
@@ -114,7 +114,7 @@ const App: React.FC = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-6xl md:text-8xl font-script font-normal z-10 mb-4"
+          className="text-6xl md:text-8xl font-script font-normal mb-4"
         >
           Himanshu <FaHeart className="inline-block text-red-500" /> Ishika
         </motion.h1>
@@ -136,7 +136,7 @@ const App: React.FC = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-5xl font-script font-normal mb-12 text-primary">Our Journey Together</h2>
           <div className="relative overflow-hidden p-10 h-full">
-            <div className="border-2-2 absolute border-opacity-20 border-secondary h-full border" style={{ left: '50%' }}></div>
+            <div className="absolute border-opacity-20 border-secondary h-full border" style={{ left: '50%' }}></div>
             {/* Timeline Item 1 */}
             <div className="mb-12 flex justify-between items-center w-full"> {/* Increased margin-bottom */}
               <div className="order-1 w-5/12"></div>
@@ -231,9 +231,9 @@ const App: React.FC = () => {
       <Section id="save-the-date" className="bg-background-light text-text-dark py-16"> {/* Increased padding */}
         <div className="container mx-auto text-center">
           <h2 className="text-5xl font-script font-normal mb-12 text-primary">Save The Date!</h2>
-          <div className="relative w-80 h-52 mx-auto perspective-1000">
+          <div className="relative w-80 h-52 mx-auto">
             <motion.div
-              className="absolute w-full h-full preserve-3d"
+              className="absolute w-full h-full"
               initial={{ rotateY: 0 }}
               animate={{ rotateY: 360 }}
               transition={{ duration: 4, repeat: Infinity, repeatDelay: 2 }}
@@ -267,7 +267,7 @@ const App: React.FC = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent to-cream opacity-75 rounded-lg"></div>
             <div className="relative z-10">
               <p className="text-2xl font-script font-normal mb-6 text-primary">Don't Forget To:</p>
-              <ul className="text-left text-xl space-y-3 font-sans">
+              <ul className="text-left text-xl space-y-3 font-sans text-text-dark">
                 <li className="flex items-center"><span className="text-rose-gold mr-3">✔</span> Bring your dance moves</li>
                 <li className="flex items-center"><span className="text-rose-gold mr-3">✔</span> Steal the groom’s shoes (if you dare!)</li>
                 <li className="flex items-center"><span className="text-rose-gold mr-3">✔</span> Cry happy tears (it's okay, we all will!)</li>
