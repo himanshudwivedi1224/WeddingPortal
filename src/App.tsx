@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHeart, FaCalendarAlt, FaMapMarkerAlt, FaWhatsapp, FaInstagram, FaYoutube, FaEnvelope } from 'react-icons/fa';
+import { FaHeart, FaMapMarkerAlt, FaWhatsapp, FaInstagram, FaYoutube, FaEnvelope } from 'react-icons/fa';
 import { IoMdDownload } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
