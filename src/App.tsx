@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; // Keep for global styles if needed, or remove if fully Tailwind
 import { FaHeart, FaCalendarAlt, FaMapMarkerAlt, FaWhatsapp, FaInstagram, FaYoutube, FaEnvelope } from 'react-icons/fa';
 import { IoMdDownload } from 'react-icons/io';
 import { motion } from 'framer-motion';

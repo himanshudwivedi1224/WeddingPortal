@@ -1,35 +1,747 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Custom styles for 3D flip effect */
-.perspective-1000 {
-  perspective: 1000px;
+/* General body styles to ensure full height and prevent overflow */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-.preserve-3d {
-  transform-style: preserve-3d;
+/* Custom scrollbar for a more elegant look */
+::-webkit-scrollbar {
+  width: 12px;
 }
 
-.backface-hidden {
-  backface-visibility: hidden;
+::-webkit-scrollbar-track {
+  background: #f8f8f8; /* Light cream */
 }
 
-.rotate-y-180 {
-  transform: rotateY(180deg);
+::-webkit-scrollbar-thumb {
+  background: #800000; /* Maroon */
+  border-radius: 6px;
 }
 
-/* General body styles to remove default margins and set font */
+::-webkit-scrollbar-thumb:hover {
+  background: #660000; /* Darker maroon on hover */
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Basic styling for the app */
 body {
   margin: 0;
-  font-family: 'Playfair Display', serif; /* Use the custom serif font */
+  font-family: 'Playfair Display', serif;
+  color: #660000; /* Dark maroon for text */
+  background-color: #FDFDFD; /* Light cream background */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ensure full height for sections */
-html, body, #root {
-  height: 100%;
+/* Navigation Bar */
+nav {
+  background-color: rgba(128, 0, 0, 0.9); /* Semi-transparent maroon */
+  color: #F8F8F8; /* Light cream text */
+  padding: 1rem 0;
+  position: fixed;
   width: 100%;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+nav.sticky {
+  background-color: #800000; /* Solid maroon when sticky */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+nav ul li button:hover {
+  color: #FDD835; /* Gold on hover */
+}
+
+/* Section Styling */
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+/* Home Section */
+#home {
+  background-image: url('https://via.placeholder.com/1920x1080/8B0000/FFFFFF?text=Wedding+Background');
+  background-size: cover;
+  background-position: center;
+  color: #F8F8F8;
+  position: relative;
+}
+
+#home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+#home > * {
+  position: relative;
+  z-index: 2;
+}
+
+#home h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#home p {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+#home .countdown span {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0.5rem;
+  color: #FDD835; /* Gold for countdown */
+}
+
+/* Our Story Section */
+#our-story {
+  background-color: #F8F8F8; /* Light cream */
+  color: #660000; /* Dark maroon */
+}
+
+#our-story h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  color: #800000;
+}
+
+.timeline {
+  position: relative;
+  padding: 10px 0;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  background-color: #990000; /* Maroon line */
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  margin-bottom: 40px;
+  position: relative;
+  width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+  padding-right: 30px;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+  padding-left: 30px;
+}
+
+.timeline-item-content {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.timeline-item-content h3 {
+  color: #FDD835;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.timeline-item-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 15px;
+  width: 20px;
+  height: 20px;
+  background-color: #800000;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -10px;
+  transform: translateX(50%);
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -10px;
+  transform: translateX(-50%);
+}
+
+/* Event Schedule Section */
+#events {
+  background-color: #660000; /* Dark maroon */
+  color: #F8F8F8;
+}
+
+#events h2 {
+  color: #FDD835;
+}
+
+.event-card {
+  background-color: #FFFFFF;
+  color: #660000;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+}
+
+.event-card h3 {
+  color: #800000;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.event-card p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.event-card a:hover {
+  text-decoration: underline;
+}
+
+/* Save-the-Date Postcard Section */
+#save-the-date {
+  background-color: #F8F8F8;
+  color: #660000;
+}
+
+#save-the-date h2 {
+  color: #800000;
+}
+
+.postcard-container {
+  position: relative;
+  width: 320px;
+  height: 208px; /* 80% of width for 5x7 aspect ratio */
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.postcard {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.postcard-front, .postcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.postcard-front {
+  background-color: #FDD835; /* Gold */
+  color: #660000;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.postcard-back {
+  background-color: #800000; /* Maroon */
+  color: #F8F8F8;
+  transform: rotateY(180deg);
+}
+
+.postcard-back p {
+  margin-bottom: 1rem;
+}
+
+.postcard-back button {
+  background-color: #FDD835;
+  color: #660000;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.postcard-back button:hover {
+  background-color: #FBC02D;
+}
+
+.download-button {
+  background-color: #800000;
+  color: #F8F8F8;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.download-button:hover {
+  background-color: #660000;
+}
+
+.download-button svg {
+  margin-right: 0.5rem;
+}
+
+/* Shaadi Checklist Magnet Section */
+#checklist {
+  background-color: #660000;
+  color: #F8F8F8;
+}
+
+#checklist h2 {
+  color: #FDD835;
+}
+
+.magnet-card {
+  background-color: #FFFFFF;
+  color: #660000;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.magnet-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #FDD835, #F8F8F8); /* Gold to Cream gradient */
+  opacity: 0.75;
+  border-radius: 15px;
+  z-index: 0;
+}
+
+.magnet-card .content {
+  position: relative;
+  z-index: 1;
+}
+
+.magnet-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #800000;
+}
+
+.magnet-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.magnet-card ul li {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.magnet-card ul li span {
+  color: #FDD835;
+  margin-right: 0.8rem;
+  font-size: 1.5rem;
+}
+
+/* RSVP Section */
+#rsvp {
+  background-color: #F8F8F8;
+  color: #660000;
+}
+
+#rsvp h2 {
+  color: #800000;
+}
+
+#rsvp form {
+  background-color: #FFFFFF;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#rsvp label {
+  display: block;
+  color: #800000;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#rsvp input[type="text"],
+#rsvp input[type="number"],
+#rsvp input[type="email"],
+#rsvp textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+#rsvp input[type="file"] {
+  margin-top: 0.5rem;
+}
+
+#rsvp button[type="submit"] {
+  background-color: #800000;
+  color: #F8F8F8;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: block;
+  margin: 0 auto;
+}
+
+#rsvp button[type="submit"]:hover {
+  background-color: #660000;
+}
+
+/* Guestbook Section */
+#guestbook {
+  background-color: #660000;
+  color: #F8F8F8;
+}
+
+#guestbook h2 {
+  color: #FDD835;
+}
+
+#guestbook form {
+  background-color: #FFFFFF;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  text-align: left;
+}
+
+#guestbook label {
+  display: block;
+  color: #800000;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+#guestbook input[type="text"],
+#guestbook textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+#guestbook button[type="submit"] {
+  background-color: #800000;
+  color: #F8F8F8;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: block;
+  margin: 0 auto;
+}
+
+#guestbook button[type="submit"]:hover {
+  background-color: #660000;
+}
+
+.advice-card {
+  background-color: #FFFFFF;
+  color: #660000;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.advice-card p.italic {
+  font-style: italic;
+  margin-bottom: 0.8rem;
+}
+
+.advice-card p.font-semibold {
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Gallery Section */
+#gallery {
+  background-color: #F8F8F8;
+  color: #660000;
+}
+
+#gallery h2 {
+  color: #800000;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* QR Code Section */
+#qr-code {
+  background-color: #660000;
+  color: #F8F8F8;
+}
+
+#qr-code h2 {
+  color: #FDD835;
+}
+
+#qr-code img {
+  background-color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto 1.5rem auto;
+}
+
+#qr-code p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Contact / Social Section */
+#contact {
+  background-color: #F8F8F8;
+  color: #660000;
+}
+
+#contact h2 {
+  color: #800000;
+}
+
+.social-icons a {
+  color: #800000;
+  font-size: 3.5rem;
+  margin: 0 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #FDD835;
+}
+
+.social-icons .fa-whatsapp:hover { color: #25D366; }
+.social-icons .fa-instagram:hover { color: #E1306C; }
+.social-icons .fa-youtube:hover { color: #FF0000; }
+.social-icons .fa-envelope:hover { color: #007bff; }
+
+#contact p {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+#contact a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #660000;
+  color: #F8F8F8;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+}
+
+footer svg {
+  color: #FF0000; /* Red heart */
+  margin: 0 0.2rem;
+}
+
+footer a {
+  color: #FDD835;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li button {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  #home h1 {
+    font-size: 3rem;
+  }
+
+  #home p {
+    font-size: 1.5rem;
+  }
+
+  #home .countdown span {
+    font-size: 2rem;
+  }
+
+  .timeline::before {
+    left: 18px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 10px;
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: 8px;
+    transform: translateX(-50%);
+  }
+
+  .event-card {
+    padding: 1.5rem;
+  }
+
+  .event-card h3 {
+    font-size: 1.8rem;
+  }
+
+  .event-card p {
+    font-size: 1rem;
+  }
+
+  .social-icons a {
+    font-size: 2.5rem;
+    margin: 0 0.5rem;
+  }
 }
