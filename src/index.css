@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600;700&display=swap');
+
 /* General body styles to ensure full height and prevent overflow */
 html, body, #root {
   height: 100%;
@@ -11,16 +14,16 @@ html, body, #root {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f8f8f8; /* Light cream */
+  background: #f0f2f5; /* Light grey for track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #800000; /* Maroon */
+  background: #b0c4de; /* Dusty blue */
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #660000; /* Darker maroon on hover */
+  background: #9fb3d1; /* Darker dusty blue on hover */
 }
 
 /* Smooth scroll behavior */
@@ -30,13 +33,33 @@ html {
 
 /* Color Palette Variables */
 :root {
+  --color-blush-pink: #f8c8dc; /* Soft blush pink */
+  --color-dusty-blue: #b0c4de; /* Dusty blue */
+  --color-mint-green: #c8e6c9; /* Soft mint green */
+  --color-cream: #fdf5e6; /* Cream */
+  --color-light-grey: #f0f2f5; /* Light grey */
+  --color-dark-grey: #4a5568; /* Dark grey for text */
+  --color-rose-gold: #b76e79; /* Rose gold accent */
+  --color-white: #ffffff; /* Pure white */
+  --color-black: #000000; /* Pure black */
+
+  /* Re-mapping existing colors to new palette */
+  --color-primary: var(--color-rose-gold);
+  --color-secondary: var(--color-dusty-blue);
+  --color-background-light: var(--color-cream);
+  --color-background-dark: var(--color-dusty-blue);
+  --color-text-dark: var(--color-dark-grey);
+  --color-text-light: var(--color-white);
+  --color-accent: var(--color-blush-pink);
+
+  /* Original colors for reference/specific use if needed */
   --color-maroon-900: #660000;
   --color-maroon-800: #800000;
   --color-maroon-700: #990000;
   --color-cream-50: #FDFDFD;
   --color-cream-100: #F8F8F8;
   --color-gold-400: #FDD835;
-  --color-gold-500: #FDD835; /* Using same as 400 for now */
+  --color-gold-500: #FDD835;
   --color-gold-600: #FBC02D;
   --color-red-500: #FF0000;
   --color-blue-600: #007bff;
@@ -52,9 +75,9 @@ html {
 /* Basic styling for the app */
 body {
   margin: 0;
-  font-family: 'Playfair Display', serif;
-  color: var(--color-maroon-900); /* Dark maroon for text */
-  background-color: var(--color-cream-50); /* Light cream background */
+  font-family: 'Open Sans', sans-serif; /* Clean sans-serif for body */
+  color: var(--color-text-dark); /* Dark grey for text */
+  background-color: var(--color-background-light); /* Cream background */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6; /* Improved readability */
@@ -62,11 +85,11 @@ body {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-  color: var(--color-maroon-800); /* Maroon for headings */
+  font-family: 'Great Vibes', cursive; /* Elegant script for headings */
+  color: var(--color-primary); /* Rose gold for headings */
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: normal; /* Great Vibes is naturally elegant, no bold needed */
 }
 
 h1 {
@@ -87,30 +110,44 @@ p {
 }
 
 /* Utility Classes - Colors */
-.text-cream-900 { color: var(--color-maroon-900); } /* Assuming cream-900 maps to maroon-900 for text */
-.bg-cream-50 { background-color: var(--color-cream-50); }
-.bg-cream-100 { background-color: var(--color-cream-100); }
-.text-cream-100 { color: var(--color-cream-100); }
-.bg-maroon-800 { background-color: var(--color-maroon-800); }
-.text-maroon-900 { color: var(--color-maroon-900); }
-.text-maroon-800 { color: var(--color-maroon-800); }
-.text-maroon-700 { color: var(--color-maroon-700); }
-.bg-maroon-900 { background-color: var(--color-maroon-900); }
-.bg-maroon-700:hover { background-color: var(--color-maroon-700); }
-.text-gold-400 { color: var(--color-gold-400); }
-.text-gold-600 { color: var(--color-gold-600); }
-.bg-gold-400 { background-color: var(--color-gold-400); }
-.bg-gold-500 { background-color: var(--color-gold-500); }
-.bg-gold-600:hover { background-color: var(--color-gold-600); }
-.text-red-500 { color: var(--color-red-500); }
-.text-blue-600 { color: var(--color-blue-600); }
-.hover\:text-blue-700:hover { color: var(--color-blue-700); }
-.text-green-500 { color: var(--color-green-500); }
-.hover\:text-green-600:hover { color: var(--color-green-600); }
-.text-pink-500 { color: var(--color-pink-500); }
-.hover\:text-pink-600:hover { color: var(--color-pink-600); }
-.bg-gray-200 { background-color: var(--color-gray-200); }
-.text-gray-700 { color: var(--color-gray-700); }
+.text-text-dark { color: var(--color-text-dark); }
+.bg-background-light { background-color: var(--color-background-light); }
+.bg-background-dark { background-color: var(--color-background-dark); }
+.text-text-light { color: var(--color-text-light); }
+.bg-primary { background-color: var(--color-primary); }
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-accent { background-color: var(--color-accent); }
+.text-accent { color: var(--color-accent); }
+.text-white { color: var(--color-white); }
+.text-black { color: var(--color-black); }
+
+/* Existing utility classes re-mapped or kept if generic */
+.text-cream-900 { color: var(--color-text-dark); }
+.bg-cream-50 { background-color: var(--color-background-light); }
+.bg-cream-100 { background-color: var(--color-background-light); }
+.text-cream-100 { color: var(--color-text-light); }
+.bg-maroon-800 { background-color: var(--color-primary); }
+.text-maroon-900 { color: var(--color-text-dark); }
+.text-maroon-800 { color: var(--color-primary); }
+.text-maroon-700 { color: var(--color-secondary); } /* Using dusty blue for timeline line */
+.bg-maroon-900 { background-color: var(--color-background-dark); }
+.bg-maroon-700:hover { background-color: var(--color-secondary); }
+.text-gold-400 { color: var(--color-rose-gold); } /* Re-mapping gold to rose gold */
+.text-gold-600 { color: var(--color-rose-gold); } /* Re-mapping gold to rose gold */
+.bg-gold-400 { background-color: var(--color-accent); } /* Re-mapping gold to blush pink */
+.bg-gold-500 { background-color: var(--color-accent); } /* Re-mapping gold to blush pink */
+.bg-gold-600:hover { background-color: var(--color-blush-pink); } /* Darker blush pink on hover */
+.text-red-500 { color: #FF6B6B; } /* Softer red for heart icon */
+.text-blue-600 { color: var(--color-secondary); }
+.hover\:text-blue-700:hover { color: var(--color-primary); }
+.text-green-500 { color: #7bc07b; } /* Softer green */
+.hover\:text-green-600:hover { color: #6aa86a; }
+.text-pink-500 { color: #e68a9e; } /* Softer pink */
+.hover\:text-pink-600:hover { color: #d17a8e; }
+.bg-gray-200 { background-color: var(--color-light-grey); }
+.text-gray-700 { color: var(--color-dark-grey); }
 
 /* Utility Classes - Spacing */
 .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
@@ -140,7 +177,8 @@ p {
 .space-y-3 > *:not([hidden]) ~ *:not([hidden]) { margin-top: 0.75rem; }
 
 /* Utility Classes - Typography */
-.font-serif { font-family: 'Playfair Display', serif; }
+.font-script { font-family: 'Great Vibes', cursive; }
+.font-sans { font-family: 'Open Sans', sans-serif; }
 .text-lg { font-size: 1.125rem; }
 .text-xl { font-size: 1.25rem; }
 .text-2xl { font-size: 1.5rem; }
@@ -151,6 +189,7 @@ p {
 .text-8xl { font-size: 6rem; }
 .font-bold { font-weight: 700; }
 .font-semibold { font-weight: 600; }
+.font-normal { font-weight: 400; } /* Added for Great Vibes */
 .capitalize { text-transform: capitalize; }
 .italic { font-style: italic; }
 .leading-snug { line-height: 1.375; }
@@ -328,17 +367,17 @@ p {
 
 /* Navigation Bar */
 nav {
-  background-color: rgba(128, 0, 0, 0.9); /* Semi-transparent maroon */
-  color: #F8F8F8; /* Light cream text */
+  background-color: rgba(176, 196, 222, 0.9); /* Semi-transparent dusty blue */
+  color: var(--color-text-light); /* White text */
   padding: 1rem 0;
   position: fixed;
   width: 100%;
   z-index: 1000;
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add box-shadow transition */
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 nav.sticky {
-  background-color: var(--color-maroon-800); /* Solid maroon when sticky */
+  background-color: var(--color-background-dark); /* Solid dusty blue when sticky */
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
@@ -354,24 +393,25 @@ nav ul li button {
   background: none;
   border: none;
   color: inherit;
-  font-size: 1.1rem; /* Slightly smaller for better fit */
-  padding: 0.75rem 1.2rem; /* Adjusted padding */
+  font-family: 'Open Sans', sans-serif; /* Use sans-serif for nav links */
+  font-size: 1.1rem;
+  padding: 0.75rem 1.2rem;
   cursor: pointer;
-  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Add transform transition */
-  font-weight: 600; /* Make navigation links bolder */
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  font-weight: 600;
 }
 
 nav ul li button:hover {
-  color: var(--color-gold-400); /* Gold on hover */
-  transform: translateY(-3px); /* Subtle lift effect */
+  color: var(--color-rose-gold); /* Rose gold on hover */
+  transform: translateY(-3px);
 }
 
 /* General Button Styles */
 .btn-primary {
-  background-color: var(--color-maroon-800); /* Maroon */
-  color: var(--color-cream-100); /* Light cream */
+  background-color: var(--color-primary); /* Rose gold */
+  color: var(--color-text-light); /* White */
   padding: 0.8rem 2rem;
-  border: 2px solid var(--color-maroon-800);
+  border: 2px solid var(--color-primary);
   border-radius: 30px;
   font-size: 1.1rem;
   font-weight: bold;
@@ -379,19 +419,20 @@ nav ul li button:hover {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
   text-decoration: none;
   display: inline-block;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-maroon-900); /* Darker maroon */
-  border-color: var(--color-maroon-900);
-  color: var(--color-gold-400); /* Gold text on hover */
+  background-color: var(--color-secondary); /* Dusty blue */
+  border-color: var(--color-secondary);
+  color: var(--color-text-light);
 }
 
 .btn-secondary {
-  background-color: var(--color-gold-400); /* Gold */
-  color: var(--color-maroon-900); /* Dark maroon */
+  background-color: var(--color-accent); /* Blush pink */
+  color: var(--color-text-dark); /* Dark grey */
   padding: 0.8rem 2rem;
-  border: 2px solid var(--color-gold-400);
+  border: 2px solid var(--color-accent);
   border-radius: 30px;
   font-size: 1.1rem;
   font-weight: bold;
@@ -399,12 +440,13 @@ nav ul li button:hover {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
   text-decoration: none;
   display: inline-block;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-gold-600); /* Darker gold */
-  border-color: var(--color-gold-600);
-  color: var(--color-maroon-800); /* Maroon text on hover */
+  background-color: var(--color-primary); /* Rose gold */
+  border-color: var(--color-primary);
+  color: var(--color-text-light);
 }
 
 
@@ -422,10 +464,10 @@ section {
 
 /* Home Section */
 #home {
-  background-image: url('https://via.placeholder.com/1920x1080/8B0000/FFFFFF?text=Wedding+Background');
+  background-image: url('https://via.placeholder.com/1920x1080/DDA0DD/FFFFFF?text=Romantic+Wedding+Background'); /* Soft purple/pink placeholder */
   background-size: cover;
   background-position: center;
-  color: var(--color-cream-100);
+  color: var(--color-text-light); /* White text */
   position: relative;
 }
 
@@ -436,7 +478,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  background-color: rgba(0, 0, 0, 0.3); /* Lighter overlay */
   z-index: 1;
 }
 
@@ -446,36 +488,39 @@ section {
 }
 
 #home h1 {
-  font-size: 5rem; /* Larger for hero section */
-  font-weight: bold;
-  margin-bottom: 1.5rem; /* Increased margin */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow for readability */
+  font-size: 5.5rem; /* Even larger for hero section */
+  font-weight: normal; /* Great Vibes is normal weight */
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-family: 'Great Vibes', cursive; /* Ensure script font for names */
 }
 
 #home p {
-  font-size: 2rem; /* Larger for hero section */
-  margin-bottom: 2.5rem; /* Increased margin */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Add text shadow for readability */
+  font-size: 2.2rem; /* Larger for hero section */
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  font-family: 'Open Sans', sans-serif; /* Ensure sans-serif for tagline */
 }
 
 #home .countdown span {
-  font-size: 3rem;
+  font-size: 3.2rem; /* Slightly larger countdown */
   font-weight: bold;
-  margin: 0 0.5rem;
-  color: var(--color-gold-400); /* Gold for countdown */
+  margin: 0 0.7rem; /* More spacing */
+  color: var(--color-rose-gold); /* Rose gold for countdown */
+  font-family: 'Open Sans', sans-serif; /* Ensure sans-serif for countdown numbers */
 }
 
 /* Our Story Section */
 #our-story {
-  background-color: var(--color-cream-100); /* Light cream */
-  color: var(--color-maroon-900); /* Dark maroon */
+  background-color: var(--color-background-light); /* Cream */
+  color: var(--color-text-dark); /* Dark grey */
 }
 
 #our-story h2 {
-  font-size: 3.8rem; /* Slightly larger */
-  font-weight: bold;
-  margin-bottom: 3.5rem; /* Increased margin */
-  color: var(--color-maroon-800);
+  font-size: 4rem; /* Larger for impact */
+  font-weight: normal; /* Great Vibes is normal weight */
+  margin-bottom: 3.5rem;
+  color: var(--color-primary); /* Rose gold */
 }
 
 .timeline {
@@ -492,7 +537,7 @@ section {
   top: 0;
   left: 50%;
   width: 2px;
-  background-color: var(--color-maroon-700); /* Maroon line */
+  background-color: var(--color-secondary); /* Dusty blue line */
   height: 100%;
   transform: translateX(-50%);
 }
@@ -516,16 +561,22 @@ section {
 }
 
 .timeline-item-content {
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .timeline-item-content h3 {
-  color: var(--color-gold-400);
-  font-size: 1.8rem; /* Larger for timeline headings */
-  margin-bottom: 15px; /* Increased margin */
+  font-family: 'Great Vibes', cursive; /* Script font for timeline headings */
+  color: var(--color-primary); /* Rose gold */
+  font-size: 2rem; /* Larger for timeline headings */
+  margin-bottom: 15px;
+}
+
+.timeline-item-content p {
+  font-family: 'Open Sans', sans-serif; /* Sans-serif for timeline text */
+  color: var(--color-text-dark);
 }
 
 .timeline-item-content img {
@@ -540,7 +591,7 @@ section {
   top: 15px;
   width: 20px;
   height: 20px;
-  background-color: var(--color-maroon-800);
+  background-color: var(--color-primary); /* Rose gold dot */
   border-radius: 50%;
   z-index: 1;
 }
@@ -557,22 +608,22 @@ section {
 
 /* Event Schedule Section */
 #events {
-  background-color: var(--color-maroon-900); /* Dark maroon */
-  color: var(--color-cream-100);
+  background-color: var(--color-background-dark); /* Dusty blue */
+  color: var(--color-text-light); /* White */
 }
 
 #events h2 {
-  color: var(--color-gold-400);
-  margin-bottom: 3.5rem; /* Add margin for consistency */
+  color: var(--color-rose-gold); /* Rose gold */
+  margin-bottom: 3.5rem;
 }
 
 .event-card {
-  background-color: #FFFFFF;
-  color: var(--color-maroon-900);
-  padding: 2.5rem; /* Increased padding */
-  border-radius: 12px; /* Slightly more rounded corners */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* More pronounced shadow */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add box-shadow transition */
+  background-color: var(--color-white);
+  color: var(--color-text-dark);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .event-card:hover {
@@ -580,18 +631,20 @@ section {
 }
 
 .event-card h3 {
-  color: var(--color-maroon-800);
-  font-size: 2.2rem; /* Slightly larger */
-  margin-bottom: 1.2rem; /* Increased margin */
+  font-family: 'Great Vibes', cursive; /* Script font for event titles */
+  color: var(--color-primary); /* Rose gold */
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .event-card p {
+  font-family: 'Open Sans', sans-serif; /* Sans-serif for event details */
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
 
 .event-card a {
-  color: var(--color-blue-600);
+  color: var(--color-secondary); /* Dusty blue for links */
   text-decoration: none;
 }
 
@@ -601,12 +654,12 @@ section {
 
 /* Save-the-Date Postcard Section */
 #save-the-date {
-  background-color: var(--color-cream-100);
-  color: var(--color-maroon-900);
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
 }
 
 #save-the-date h2 {
-  color: var(--color-maroon-800);
+  color: var(--color-primary);
 }
 
 .postcard-container {
@@ -640,41 +693,44 @@ section {
 }
 
 .postcard-front {
-  background-color: var(--color-gold-400); /* Gold */
-  color: var(--color-maroon-900);
-  font-size: 2.5rem; /* Larger font size */
-  font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow */
+  background-color: var(--color-accent); /* Blush pink */
+  color: var(--color-text-dark);
+  font-family: 'Great Vibes', cursive; /* Script font for postcard text */
+  font-size: 2.5rem;
+  font-weight: normal;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .postcard-back {
-  background-color: var(--color-maroon-800); /* Maroon */
-  color: var(--color-cream-100);
+  background-color: var(--color-primary); /* Rose gold */
+  color: var(--color-text-light);
   transform: rotateY(180deg);
 }
 
 .postcard-back p {
+  font-family: 'Open Sans', sans-serif; /* Sans-serif for postcard back text */
   margin-bottom: 1rem;
 }
 
 .postcard-back button {
-  background-color: var(--color-gold-500);
-  color: var(--color-maroon-900);
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
   padding: 0.8rem 1.5rem;
   border-radius: 25px;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .postcard-back button:hover {
-  background-color: var(--color-gold-600);
+  background-color: var(--color-blush-pink);
 }
 
 .download-button {
-  background-color: var(--color-maroon-800);
-  color: var(--color-cream-100);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
   padding: 1rem 2rem;
   border-radius: 30px;
   font-size: 1.2rem;
@@ -684,10 +740,11 @@ section {
   margin-top: 2rem;
   display: inline-flex;
   align-items: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .download-button:hover {
-  background-color: var(--color-maroon-900);
+  background-color: var(--color-secondary);
 }
 
 .download-button svg {
@@ -696,17 +753,17 @@ section {
 
 /* Shaadi Checklist Magnet Section */
 #checklist {
-  background-color: var(--color-maroon-900);
-  color: var(--color-cream-100);
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
 }
 
 #checklist h2 {
-  color: var(--color-gold-400);
+  color: var(--color-rose-gold);
 }
 
 .magnet-card {
-  background-color: #FFFFFF;
-  color: var(--color-maroon-900);
+  background-color: var(--color-white);
+  color: var(--color-text-dark);
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
@@ -723,7 +780,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, var(--color-gold-400), var(--color-cream-100)); /* Gold to Cream gradient */
+  background: linear-gradient(45deg, var(--color-accent), var(--color-cream)); /* Blush pink to Cream gradient */
   opacity: 0.75;
   border-radius: 15px;
   z-index: 0;
@@ -735,10 +792,11 @@ section {
 }
 
 .magnet-card p {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-family: 'Great Vibes', cursive; /* Script font for "Don't Forget To:" */
+  font-size: 1.8rem; /* Larger font size */
+  font-weight: normal;
   margin-bottom: 1.5rem;
-  color: var(--color-maroon-800);
+  color: var(--color-primary);
 }
 
 .magnet-card ul {
@@ -750,28 +808,29 @@ section {
 .magnet-card ul li {
   display: flex;
   align-items: center;
+  font-family: 'Open Sans', sans-serif; /* Sans-serif for checklist items */
   font-size: 1.2rem;
   margin-bottom: 0.8rem;
 }
 
 .magnet-card ul li span {
-  color: var(--color-gold-400);
+  color: var(--color-rose-gold);
   margin-right: 0.8rem;
   font-size: 1.5rem;
 }
 
 /* RSVP Section */
 #rsvp {
-  background-color: var(--color-cream-100);
-  color: var(--color-maroon-900);
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
 }
 
 #rsvp h2 {
-  color: var(--color-maroon-800);
+  color: var(--color-primary);
 }
 
 #rsvp form {
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   padding: 2.5rem;
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.2);
@@ -782,9 +841,10 @@ section {
 
 #rsvp label {
   display: block;
-  color: var(--color-maroon-800);
+  color: var(--color-primary); /* Rose gold for labels */
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600; /* Slightly less bold */
   margin-bottom: 0.5rem;
 }
 
@@ -794,19 +854,22 @@ section {
 #rsvp textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-light-grey); /* Lighter border */
   border-radius: 5px;
   margin-bottom: 1.5rem;
   font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--color-text-dark);
 }
 
 #rsvp input[type="file"] {
   margin-top: 0.5rem;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #rsvp button[type="submit"] {
-  background-color: var(--color-maroon-800);
-  color: var(--color-cream-100);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
   padding: 1rem 2.5rem;
   border-radius: 30px;
   font-size: 1.2rem;
@@ -815,24 +878,25 @@ section {
   transition: background-color 0.3s ease-in-out;
   display: block;
   margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #rsvp button[type="submit"]:hover {
-  background-color: var(--color-maroon-900);
+  background-color: var(--color-secondary);
 }
 
 /* Guestbook Section */
 #guestbook {
-  background-color: var(--color-maroon-900);
-  color: var(--color-cream-100);
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
 }
 
 #guestbook h2 {
-  color: var(--color-gold-400);
+  color: var(--color-rose-gold);
 }
 
 #guestbook form {
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   padding: 2.5rem;
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.2);
@@ -843,9 +907,10 @@ section {
 
 #guestbook label {
   display: block;
-  color: var(--color-maroon-800);
+  color: var(--color-primary);
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
@@ -853,15 +918,17 @@ section {
 #guestbook textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-light-grey);
   border-radius: 5px;
   margin-bottom: 1.5rem;
   font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--color-text-dark);
 }
 
 #guestbook button[type="submit"] {
-  background-color: var(--color-maroon-800);
-  color: var(--color-cream-100);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
   padding: 1rem 2.5rem;
   border-radius: 30px;
   font-size: 1.2rem;
@@ -870,19 +937,21 @@ section {
   transition: background-color 0.3s ease-in-out;
   display: block;
   margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #guestbook button[type="submit"]:hover {
-  background-color: var(--color-maroon-900);
+  background-color: var(--color-secondary);
 }
 
 .advice-card {
-  background-color: #FFFFFF;
-  color: var(--color-maroon-900);
+  background-color: var(--color-white);
+  color: var(--color-text-dark);
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   text-align: left;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .advice-card p.italic {
@@ -891,24 +960,24 @@ section {
 }
 
 .advice-card p.font-semibold {
-  font-weight: bold;
+  font-weight: 600;
   text-align: right;
 }
 
 /* Gallery Section */
 #gallery {
-  background-color: var(--color-cream-100);
-  color: var(--color-maroon-900);
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
 }
 
 #gallery h2 {
-  color: var(--color-maroon-800);
+  color: var(--color-primary);
 }
 
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem; /* Increased gap for more whitespace */
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -916,30 +985,31 @@ section {
 
 .photo-grid img {
   width: 100%;
-  height: 200px;
+  height: 220px; /* Slightly taller images */
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add box-shadow transition */
 }
 
 .photo-grid img:hover {
   transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
 }
 
 /* QR Code Section */
 #qr-code {
-  background-color: var(--color-maroon-900);
-  color: var(--color-cream-100);
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
 }
 
 #qr-code h2 {
-  color: var(--color-gold-400);
+  color: var(--color-rose-gold);
 }
 
 #qr-code img {
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -949,44 +1019,46 @@ section {
 }
 
 #qr-code p {
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
 /* Contact / Social Section */
 #contact {
-  background-color: var(--color-cream-100);
-  color: var(--color-maroon-900);
+  background-color: var(--color-background-light);
+  color: var(--color-text-dark);
 }
 
 #contact h2 {
-  color: var(--color-maroon-800);
+  color: var(--color-primary);
 }
 
 .social-icons a {
-  color: var(--color-maroon-800);
-  font-size: 3.8rem; /* Slightly larger */
-  margin: 0 1.2rem; /* Increased margin */
-  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Add transform transition */
+  color: var(--color-primary); /* Rose gold for icons */
+  font-size: 3.8rem;
+  margin: 0 1.2rem;
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .social-icons a:hover {
-  color: var(--color-gold-400);
-  transform: translateY(-5px); /* Subtle lift effect */
+  color: var(--color-secondary); /* Dusty blue on hover */
+  transform: translateY(-5px);
 }
 
-.social-icons .fa-whatsapp:hover { color: var(--color-green-500); }
-.social-icons .fa-instagram:hover { color: var(--color-pink-500); }
-.social-icons .fa-youtube:hover { color: var(--color-red-500); }
-.social-icons .fa-envelope:hover { color: var(--color-blue-600); }
+.social-icons .fa-whatsapp:hover { color: #7bc07b; } /* Softer green */
+.social-icons .fa-instagram:hover { color: #e68a9e; } /* Softer pink */
+.social-icons .fa-youtube:hover { color: #FF6B6B; } /* Softer red */
+.social-icons .fa-envelope:hover { color: var(--color-secondary); }
 
 #contact p {
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.2rem;
   margin-top: 1.5rem;
 }
 
 #contact a {
-  color: var(--color-blue-600);
+  color: var(--color-secondary);
   text-decoration: none;
 }
 
@@ -996,11 +1068,12 @@ section {
 
 /* Footer */
 footer {
-  background-color: var(--color-maroon-900);
-  color: var(--color-cream-100);
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
   padding: 2rem 1rem;
   text-align: center;
   font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
 }
 
 footer p {
@@ -1008,12 +1081,12 @@ footer p {
 }
 
 footer svg {
-  color: var(--color-red-500); /* Red heart */
+  color: #FF6B6B; /* Softer red heart */
   margin: 0 0.2rem;
 }
 
 footer a {
-  color: var(--color-gold-400);
+  color: var(--color-rose-gold);
   text-decoration: none;
 }
 
@@ -1029,20 +1102,20 @@ footer a:hover {
   }
 
   nav ul li button {
-    font-size: 0.9rem; /* Smaller on mobile */
+    font-size: 0.9rem;
     padding: 0.4rem 0.7rem;
   }
 
   #home h1 {
-    font-size: 3.5rem; /* Adjusted for mobile */
+    font-size: 3.8rem; /* Adjusted for mobile */
   }
 
   #home p {
-    font-size: 1.6rem; /* Adjusted for mobile */
+    font-size: 1.8rem; /* Adjusted for mobile */
   }
 
   #home .countdown span {
-    font-size: 2.2rem; /* Adjusted for mobile */
+    font-size: 2.5rem; /* Adjusted for mobile */
   }
 
   .timeline::before {
@@ -1072,16 +1145,21 @@ footer a:hover {
   }
 
   .event-card h3 {
-    font-size: 1.9rem; /* Adjusted for mobile */
+    font-size: 1.9rem;
   }
 
   .event-card p {
-    font-size: 1.05rem; /* Adjusted for mobile */
+    font-size: 1.05rem;
   }
 
   .social-icons a {
     font-size: 2.5rem;
     margin: 0 0.5rem;
+  }
+
+  /* Adjust section padding for smaller screens */
+  section {
+    padding: 4rem 1rem;
   }
 }
 
